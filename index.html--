@@ -2,7 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<link rel="stylesheet" href="awesome/css/font-awesome.min.css" />
 <style>
 td{
 border:solid 1px #0099FF;
@@ -10,71 +9,6 @@ color:#FF0000;
 }
 a{
 text-decoration:none;
-}
-.font1{
-width:19%;
-padding:1px;
-color:#996600;
-	 text-decoration: none;
-    font-family: Arial,Helvetica;
-    font-size: 16px;	
-    -webkit-transform: skewX(-25deg);
-    -moz-transform: skewX(-25deg);
-    -o-transform: skewX(-25deg);
-    -ms-transform: skewX(-25deg);
-    transform: skewX(-2deg);
-}
-.font11{
-width:19%;
-padding:1px;
-color:#FF00FF;
-	 text-decoration: none;
-    font-family: Arial,Helvetica;
-    font-size: 16px;	
-    -webkit-transform: skewX(-25deg);
-    -moz-transform: skewX(-25deg);
-    -o-transform: skewX(-25deg);
-    -ms-transform: skewX(-25deg);
-    transform: skewX(-2deg);
-}
-.font111{
-width:19%;
-padding:1px;
-color:#ccc;
-	 text-decoration: none;
-    font-family: Arial,Helvetica;
-    font-size: 16px;	
-    -webkit-transform: skewX(-25deg);
-    -moz-transform: skewX(-25deg);
-    -o-transform: skewX(-25deg);
-    -ms-transform: skewX(-25deg);
-    transform: skewX(-2deg);
-}
-.font2{
-width:39%;
-padding:1px;
-color:#ccc;
-    text-decoration: none;
-    font-family: Arial,Helvetica;
-    font-size: 12px;	
-    -webkit-transform: skewX(-25deg);
-    -moz-transform: skewX(-25deg);
-    -o-transform: skewX(-25deg);
-    -ms-transform: skewX(-25deg);
-    transform: skewX(-25deg);
-}
-.font22{
-width:39%;
-padding:1px;
-color:#ccc;
-    text-decoration: none;
-    font-family: Arial,Helvetica;
-    font-size: 12px;	
-    -webkit-transform: skewX(-25deg);
-    -moz-transform: skewX(-25deg);
-    -o-transform: skewX(-25deg);
-    -ms-transform: skewX(-25deg);
-    transform: skewX(-25deg);
 }
 </style>
 <title>无标题文档</title>
@@ -93,17 +27,13 @@ color:#ccc;
 <div id="rightone" style="height:38%;width:93%;margin-left:5%">
 
 <div id="rightoneone" style="height:100%;width:25%;float:left; position: relative">
-<div style="border:solid red;height:75%;width:80%;margin-top:10%;"><img id="page1img1" src="img/1.jpg" width="98%" height="98%" style="margin:1%"/></div>
+<div style="border:solid red;height:70%;width:80%;margin-top:10%;"><img id="page1img1" src="img/1.jpg" width="98%" height="98%" style="margin:1%"/></div>
 </div>
 <div id="rightonetwo" style="height:100%;width:70%; float:left;position: relative">
-<div id="page1onetitle1" style="position: relative;width:99%">
-<font id="blog1title1" class="font1"></font><font id="blog1auth" class="font2"></font>
-</div>
-<div id="page1onetitle2x" style="position: relative"><font id="page1onetitle2" class="font111"></font></div>
-<div id="page1onecontext" style="position: relative"><font id="blog1date" class="font22"></font><font id="blog1content" class="font11"></font></div>
-<div id="page1onenumx" style="position: relative">
-<i class="fa fa-star" id="page1onenum"></i>
-</div>
+<div id="page1onetitle1" style="position: relative"></div>
+<div id="page1onetitle2" style="position: relative"></div>
+<div id="page1onecontext" style="position: relative"></div>
+<div id="page1onenum" style="position: relative"></div>
 </div>
 
 </div>
@@ -113,7 +43,7 @@ color:#ccc;
 <div id="rightthree" style="height:38%;width:93%;position: relative;margin-left:5%">
 
 <div id="rightthreeone" style="height:100%;width:25%; position: relative;float:left">
-<div style="border:solid red;height:75%;width:80%;margin-top:10%;"><img id="page1img2" src="img/2.jpg" width="98%" height="98%" style="margin:1%"/></div>
+<div style="border:solid red;height:70%;width:80%;margin-top:10%;"><img id="page1img2" src="img/2.jpg" width="98%" height="98%" style="margin:1%"/></div>
 </div>
 <div id="rightthreetwo" style="height:100%;width:70%; float:left;position: relative;float:left">
 <div id="page1twotitle1" style="position: relative"></div>
@@ -343,19 +273,15 @@ function init()
 }
 function initblog()
 {
-	var title = page1Obj1.title + " by " + page1Obj1.author;
-	document.getElementById("blog1title1").innerHTML=page1Obj1.title;
-	document.getElementById("blog1auth").innerHTML=" by "+page1Obj1.author;
-	//document.getElementById("page1onetitle1").innerHTML=title;
+	var title = page1Obj1.title + " by " + page1Obj1.author
+	document.getElementById("page1onetitle1").innerHTML=title;
 	document.getElementById("page1onetitle2").innerHTML=page1Obj1.secTitle;
 	var timeresult = calTime(page1Obj1.publishTime);
 	var context = timeresult + " - " + page1Obj1.context;
-	document.getElementById("blog1date").innerHTML=timeresult;
-	document.getElementById("blog1content").innerHTML=" - "+page1Obj1.context;
-	//document.getElementById("page1onecontext").innerHTML=context;
+	document.getElementById("page1onecontext").innerHTML=context;
 	document.getElementById("page1onenum").innerHTML=page1Obj1.num;
 	
-	var title = page1Obj2.title + " by " + page1Obj2.author;
+	var title = page1Obj2.title + " by " + page1Obj2.author
 	document.getElementById("page1twotitle1").innerHTML=title;
 	document.getElementById("page1twotitle2").innerHTML=page1Obj2.secTitle;
 	var timeresult = calTime(page1Obj2.publishTime);
@@ -363,7 +289,7 @@ function initblog()
 	document.getElementById("page1twocontext").innerHTML=context;
 	document.getElementById("page1twonum").innerHTML=page1Obj2.num;
 	
-	var title = page2Obj1.title + " by " + page2Obj1.author;
+	var title = page2Obj1.title + " by " + page2Obj1.author
 	document.getElementById("page2onetitle1").innerHTML=title;
 	document.getElementById("page2onetitle2").innerHTML=page2Obj1.secTitle;
 	var timeresult = calTime(page2Obj1.publishTime);
@@ -371,7 +297,7 @@ function initblog()
 	document.getElementById("page2onecontext").innerHTML=context;
 	document.getElementById("page2onenum").innerHTML=page2Obj1.num;
 	
-	var title = page2Obj2.title + " by " + page2Obj2.author;
+	var title = page2Obj2.title + " by " + page2Obj2.author
 	document.getElementById("page2twotitle1").innerHTML=title;
 	document.getElementById("page2twotitle2").innerHTML=page2Obj2.secTitle;
 	var timeresult = calTime(page1Obj2.publishTime);
