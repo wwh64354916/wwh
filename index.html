@@ -116,10 +116,14 @@ color:#ccc;
 <div style="border:solid red;height:75%;width:80%;margin-top:10%;"><img id="page1img2" src="img/2.jpg" width="98%" height="98%" style="margin:1%"/></div>
 </div>
 <div id="rightthreetwo" style="height:100%;width:70%; float:left;position: relative;float:left">
-<div id="page1twotitle1" style="position: relative"></div>
-<div id="page1twotitle2" style="position: relative"></div>
-<div id="page1twocontext" style="position: relative"></div>
-<div id="page1twonum" style="position: relative"></div>
+<div id="page1twotitle1" style="position: relative;width:99%">
+<font id="blog2title1" class="font1"></font><font id="blog2auth" class="font2"></font>
+</div>
+<div id="page1twotitle2x" style="position: relative"><font id="page1twotitle2" class="font111"></font></div>
+<div id="page1twocontext" style="position: relative"><font id="blog2date" class="font22"></font><font id="blog2content" class="font11"></font></div>
+<div id="page1twonumx" style="position: relative">
+<i class="fa fa-star" id="page1twonum"></i>
+</div>
 </div>
 </div>
 
@@ -135,10 +139,14 @@ color:#ccc;
 <div style="border:solid red;height:70%;width:80%;margin-top:10%;"><img id="page2img1" src="img/3.jpg" width="98%" height="98%" style="margin:1%"/></div>
 </div>
 <div id="rightonetwo" style="height:100%;width:70%; float:left;position: relative">
-<div id="page2onetitle1" style="position: relative"></div>
-<div id="page2onetitle2" style="position: relative"></div>
-<div id="page2onecontext" style="position: relative"></div>
-<div id="page2onenum" style="position: relative"></div>
+<div id="page2onetitle1" style="position: relative;width:99%">
+<font id="blog3title1" class="font1"></font><font id="blog3auth" class="font2"></font>
+</div>
+<div id="page2onetitle2x" style="position: relative"><font id="page2onetitle2" class="font111"></font></div>
+<div id="page2onecontext" style="position: relative"><font id="blog3date" class="font22"></font><font id="blog3content" class="font11"></font></div>
+<div id="page2onenumx" style="position: relative">
+<i class="fa fa-star" id="page2onenum"></i>
+</div>
 </div>
 
 </div>
@@ -151,10 +159,14 @@ color:#ccc;
 <div style="border:solid red;height:70%;width:80%;margin-top:10%;"><img id="page2img2" src="img/4.jpg" width="98%" height="98%" style="margin:1%" /></div>
 </div>
 <div id="rightthreetwo" style="height:100%;width:70%; float:left;position: relative;float:left">
-<div id="page2twotitle1" style="position: relative"></div>
-<div id="page2twotitle2" style="position: relative"></div>
-<div id="page2twocontext" style="position: relative"></div>
-<div id="page2twonum" style="position: relative"></div>
+<div id="page2twotitle1" style="position: relative;width:99%">
+<font id="blog4title1" class="font1"></font><font id="blog4auth" class="font2"></font>
+</div>
+<div id="page2twotitle2x" style="position: relative"><font id="page2twotitle2" class="font111"></font></div>
+<div id="page2twocontext" style="position: relative"><font id="blog4date" class="font22"></font><font id="blog4content" class="font11"></font></div>
+<div id="page2twonumx" style="position: relative">
+<i class="fa fa-star" id="page2twonum"></i>
+</div>
 </div>
 </div>
 
@@ -192,7 +204,7 @@ color:#ccc;
 
 <div id="gopage" style="height:20%; position: relative;vertical-align:middle;">
 	<div style="float:right;position: relative;width:40%;height:30%;">
-	<table><tr><td>&nbsp;<a href="javascript:pre();"><<</a>&nbsp;</td><td id="p1">&nbsp;<a href="javascript:gopage('1');"><font id="pf1">1</font></a>&nbsp;</td><td id="p2">&nbsp;<a href="javascript:gopage('2');"><font id="pf2">2</font></a>&nbsp;</td><td id="p3">&nbsp;<a href="javascript:gopage('3');"><font id="pf3">3</font></a>&nbsp;</td>
+	<table><tr><td>&nbsp;<a href="javascript:pre();"><<</a>&nbsp;</td><td id="p1">&nbsp;<a href="javascript:gopage('1');"><font id="pf1">1</font></a>&nbsp;</td><td id="p2">&nbsp;<a href="javascript:gopage('2');"><font id="pf2">2</font></a>&nbsp;</td><td id="p3">&nbsp;<font id="pf3">3</font>&nbsp;</td>
 	<td>&nbsp;<a href="javascript:nextp();">>></a>&nbsp;</td>
 	</tr></table>
 	</div>
@@ -217,9 +229,9 @@ function gopage(cp)
 function nextp()
 {
 	cpage = cpage +1;
-	if (cpage>=3)
+	if (cpage>=2)
 	{
-		cpage=3;
+		cpage=2;
 	}
 	showpage();
 	initpagecolor();
@@ -343,40 +355,121 @@ function init()
 }
 function initblog()
 {
-	var title = page1Obj1.title + " by " + page1Obj1.author;
-	document.getElementById("blog1title1").innerHTML=page1Obj1.title;
+	var blogtitle1 = page1Obj1.title;
+	var blogtitle2 = page1Obj1.secTitle;
+	var blogcontext = page1Obj1.context;
+
+	if (blogtitle1.length>25)
+	{
+		blogtitle1 = blogtitle1.substr(0,25)+"...";
+	}
+	
+	if (blogtitle2.length>25)
+	{
+		blogtitle2 = blogtitle2.substr(0,25)+"...";
+	}
+	
+	if (blogcontext.length>250)
+	{
+		blogcontext = blogcontext.substr(0,250)+"...";
+	}
+
+	document.getElementById("blog1title1").innerHTML=blogtitle1;
 	document.getElementById("blog1auth").innerHTML=" by "+page1Obj1.author;
-	//document.getElementById("page1onetitle1").innerHTML=title;
-	document.getElementById("page1onetitle2").innerHTML=page1Obj1.secTitle;
+	
+	document.getElementById("page1onetitle2").innerHTML=blogtitle2;
 	var timeresult = calTime(page1Obj1.publishTime);
 	var context = timeresult + " - " + page1Obj1.context;
 	document.getElementById("blog1date").innerHTML=timeresult;
-	document.getElementById("blog1content").innerHTML=" - "+page1Obj1.context;
+	document.getElementById("blog1content").innerHTML=" - "+blogcontext;
 	//document.getElementById("page1onecontext").innerHTML=context;
 	document.getElementById("page1onenum").innerHTML=page1Obj1.num;
 	
-	var title = page1Obj2.title + " by " + page1Obj2.author;
-	document.getElementById("page1twotitle1").innerHTML=title;
-	document.getElementById("page1twotitle2").innerHTML=page1Obj2.secTitle;
+	blogtitle1 = page1Obj2.title;
+	blogtitle2 = page1Obj2.secTitle;
+	blogcontext = page1Obj2.context;
+
+	if (blogtitle1.length>25)
+	{
+		blogtitle1 = blogtitle1.substr(0,25)+"...";
+	}
+	
+	if (blogtitle2.length>25)
+	{
+		blogtitle2 = blogtitle2.substr(0,25)+"...";
+	}
+	
+	if (blogcontext.length>250)
+	{
+		blogcontext = blogcontext.substr(0,250)+"...";
+	}
+	document.getElementById("blog2title1").innerHTML=blogtitle1;
+	document.getElementById("blog2auth").innerHTML=" by "+page1Obj2.author;
+	//document.getElementById("page1twotitle1").innerHTML=title;
+	document.getElementById("page1twotitle2").innerHTML=blogtitle2;
 	var timeresult = calTime(page1Obj2.publishTime);
 	var context = timeresult + " - " + page1Obj2.context;
-	document.getElementById("page1twocontext").innerHTML=context;
+	document.getElementById("blog2date").innerHTML=timeresult;
+	document.getElementById("blog2content").innerHTML=" - "+blogcontext;
+	//document.getElementById("page1twocontext").innerHTML=context;
 	document.getElementById("page1twonum").innerHTML=page1Obj2.num;
 	
-	var title = page2Obj1.title + " by " + page2Obj1.author;
-	document.getElementById("page2onetitle1").innerHTML=title;
-	document.getElementById("page2onetitle2").innerHTML=page2Obj1.secTitle;
+	blogtitle1 = page2Obj1.title;
+	blogtitle2 = page2Obj1.secTitle;
+	blogcontext = page2Obj1.context;
+
+	if (blogtitle1.length>25)
+	{
+		blogtitle1 = blogtitle1.substr(0,25)+"...";
+	}
+	
+	if (blogtitle2.length>25)
+	{
+		blogtitle2 = blogtitle2.substr(0,25)+"...";
+	}
+	
+	if (blogcontext.length>250)
+	{
+		blogcontext = blogcontext.substr(0,250)+"...";
+	}
+	document.getElementById("blog3title1").innerHTML=blogtitle1;
+	document.getElementById("blog3auth").innerHTML=" by "+page2Obj1.author;
+	//document.getElementById("page2onetitle1").innerHTML=title;
+	document.getElementById("page2onetitle2").innerHTML=blogtitle2;
 	var timeresult = calTime(page2Obj1.publishTime);
 	var context = timeresult + " - " + page2Obj1.context;
-	document.getElementById("page2onecontext").innerHTML=context;
+	document.getElementById("blog3date").innerHTML=timeresult;
+	document.getElementById("blog3content").innerHTML=" - "+blogcontext;
+	//document.getElementById("page2onecontext").innerHTML=context;
 	document.getElementById("page2onenum").innerHTML=page2Obj1.num;
 	
-	var title = page2Obj2.title + " by " + page2Obj2.author;
-	document.getElementById("page2twotitle1").innerHTML=title;
-	document.getElementById("page2twotitle2").innerHTML=page2Obj2.secTitle;
+	blogtitle1 = page2Obj2.title;
+	blogtitle2 = page2Obj2.secTitle;
+	blogcontext = page2Obj2.context;
+
+	if (blogtitle1.length>25)
+	{
+		blogtitle1 = blogtitle1.substr(0,25)+"...";
+	}
+	
+	if (blogtitle2.length>25)
+	{
+		blogtitle2 = blogtitle2.substr(0,25)+"...";
+	}
+	
+	if (blogcontext.length>250)
+	{
+		blogcontext = blogcontext.substr(0,250)+"...";
+	}
+	document.getElementById("blog4title1").innerHTML=blogtitle1;
+	document.getElementById("blog4auth").innerHTML=" by "+page2Obj2.author;
+	//document.getElementById("page2twotitle1").innerHTML=title;
+	document.getElementById("page2twotitle2").innerHTML=blogtitle2;
 	var timeresult = calTime(page1Obj2.publishTime);
 	var context = timeresult + " - " + page2Obj2.context;
-	document.getElementById("page2twocontext").innerHTML=context;
+	document.getElementById("blog4date").innerHTML=timeresult;
+	document.getElementById("blog4content").innerHTML=" - "+blogcontext;
+	//document.getElementById("page2twocontext").innerHTML=context;
 	document.getElementById("page2twonum").innerHTML=page2Obj2.num;
 }
 function initpagecolor()
